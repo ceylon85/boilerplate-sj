@@ -1,0 +1,24 @@
+{
+  "name": "boilerplate-sj",
+  "version": "1.0.0",
+  "description": "boiler-plate",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sj-lee",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceylon85/boilerplate-sj.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ceylon85/boilerplate-sj/issues"
+  },
+  "homepage": "https://github.com/ceylon85/boilerplate-sj#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.16"
+  }
+}
