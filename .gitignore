@@ -6,6 +6,9 @@
 # testing
 /coverage
 
+# mongo account
+.dev.js
+
 .idea/
 .vscode/
 node_modules/
