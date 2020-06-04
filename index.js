@@ -10,9 +10,10 @@ const { auth } = require("./middleware/auth");
 
 //application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
 //application.json
 app.use(bodyParser.json());
+app.use(cookieParser());
+
 const mongoose = require("mongoose");
 mongoose
   .connect(config.mongoURI, {
@@ -31,9 +32,12 @@ app.post("/api/users/register", (req, res) => {
 
   //그것들을 DB에 넣어준다.
   const user = new User(req.body);
+
   user.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
-    return res.status(200).json({ success: true });
+    return res.status(200).json({
+      success: true,
+    });
   });
 });
 
@@ -59,10 +63,9 @@ app.post("/api/users/login", (req, res) => {
         if (err) return res.status(400).send(err);
 
         //token을 저장한다. 쿠키에 저장
-        res.cookie("x_auth", user.token).status(200).json({
-          loginSuccess: true,
-          userId: user._id,
-        });
+        res.cookie("x_auth", user.token)
+          .status(200)
+          .json({ loginSuccess: true, userId: user._id });
       });
     });
   });
@@ -73,7 +76,8 @@ app.post("/api/users/login", (req, res) => {
 //콜백함수로 가기전에 auth(middleware)로 이동
 app.get("/api/users/auth", auth, (req, res) => {
   //여기까지 middleware를 통과해 왔다는 것은 auth가 true임
-  res.status(200).json({ //성공하면 제공하는 정보들
+  res.status(200).json({
+    //성공하면 제공하는 정보들
     _id: req.user._id,
     isAdmin: req.user.role === 0 ? false : true,
     isAuth: true,
@@ -82,6 +86,16 @@ app.get("/api/users/auth", auth, (req, res) => {
     lastname: req.user.lastname,
     role: req.user.role,
     image: req.user.image,
+  });
+});
+
+app.get('/api/users/logout', auth, (req, res) => {
+
+  User.findOneAndUpdate({ _id: req.user._id }, { token: "" },  (err, user) => {
+    if (err) return res.json({ success: false, err });
+    return res.status(200).send({
+      success: true
+    })
   });
 });
 
