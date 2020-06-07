@@ -29,7 +29,7 @@ app.get("/", (req, res) => res.send("Hello world이다!! Haha"));
 
 app.get('/api/hello', (req, res)=> {
   
-  res.send('안녕하세요~~')
+  res.send('안녕하세요~~5000번 포트임다')
 })
 
 
