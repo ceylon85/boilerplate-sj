@@ -1,13 +1,25 @@
 import Axios from "axios";
-import { LOGIN_USER } from "./types";
-import { USER_SERVER } from '../components/Config';
+import { LOGIN_USER, REGISTER_USER } from "./types";
+import { USER_SERVER } from "../components/Config";
 
 export function loginUser(dataToSubmit) {
-  const request = Axios.post(`${USER_SERVER}/login`, dataToSubmit)
-      .then(response => response.data);
+  const request = Axios.post(`${USER_SERVER}/login`, dataToSubmit).then(
+    (response) => response.data
+  );
 
   return {
-      type: LOGIN_USER,
-      payload: request
-  }
+    type: LOGIN_USER,
+    payload: request,
+  };
+}
+
+export function registerUser(dataToSubmit) {
+  const request = Axios.post(`${USER_SERVER}/register`, dataToSubmit).then(
+    (response) => response.data
+  );
+
+  return {
+    type: REGISTER_USER,
+    payload: request,
+  };
 }
