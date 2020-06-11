@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
 import { withRouter } from "react-router-dom";
+import { Button, Typography } from 'antd';
 
 function LandingPage(props) {
-
+  const Title = Typography
+    
   useEffect(() => {
     Axios.get("/api/hello").then((response) => console.log(response.data));
   }, []);
@@ -28,8 +30,8 @@ function LandingPage(props) {
         height: "100vh",
       }}
     >
-      <h2>landing</h2>
-      <button onClick={onClickHandler}>로그아웃</button>
+      <Title>landing</Title>
+      <Button onClick={onClickHandler}>로그아웃</Button>
     </div>
   );
 }
