@@ -1,9 +1,14 @@
 import React from 'react'
+import {Icon} from 'antd';
 
 function Footer() {
     return (
-        <div>
-             푸터
+        <div style={{
+            height: '80px', display: 'flex',
+            flexDirection: 'column', alignItems: 'center',
+            justifyContent: 'center', fontSize:'1rem'
+        }}>
+           <p><Icon type="trophy" spin="true" theme="filled"/> Hello Coding  <Icon type="trophy" spin="true" /></p>
         </div>
     )
 }

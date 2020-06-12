@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../../_actions/user_action";
 
+import {
+  Form,
+  Input,
+  Button,
+} from 'antd';
+
 function RegisterPage(props) {
   const dispatch = useDispatch();
 
@@ -9,13 +15,16 @@ function RegisterPage(props) {
   const [Name, setName] = useState("");
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
-
+  const [LastName, setLastName] = useState("")
   const onEmailHandler = (e) => {
     setEmail(e.currentTarget.value);
   };
 
   const onNameHandler = (e) => {
     setName(e.currentTarget.value);
+  };
+  const onLastNameHandler = (e) => {
+    setLastName(e.currentTarget.value);
   };
 
   const onPasswordHandler = (e) => {
@@ -37,6 +46,7 @@ function RegisterPage(props) {
       email: Email,
       password: Password,
       name: Name,
+      lastname: LastName
     };
 
     dispatch(registerUser(body))
@@ -49,6 +59,17 @@ function RegisterPage(props) {
     });
   };
 
+  const formItemLayout = {
+    labelCol: {
+      xs: { span: 24 },
+      sm: { span: 8 },
+    },
+    wrapperCol: {
+      xs: { span: 24 },
+      sm: { span: 16 },
+    },
+  };
+
   return (
     <div
       style={{
@@ -59,25 +80,29 @@ function RegisterPage(props) {
         height: "100vh",
       }}
     >
-      <form
-        style={{ display: "flex", flexDirection: "column" }}
-        onSubmit={onSubmitHandler}
-      >
-        <label>Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler} />
-        <label>Name</label>
-        <input type="text" value={Name} onChange={onNameHandler} />
-        <label>Password</label>
-        <input type="password" value={Password} onChange={onPasswordHandler} />
-        <label>Confirm Password</label>
-        <input
+    <Form style={{ minWidth: '375px' }} {...formItemLayout} onSubmit={onSubmitHandler} >
+        <Form.Item required label="Name">
+        <Input type="text" value={Name} onChange={onNameHandler} />
+        </Form.Item>
+        <Form.Item unrequired label="Last Name">
+        <Input type="text" value={LastName} onChange={onLastNameHandler} />
+        </Form.Item>
+        <Form.Item required label="Email"> 
+        <Input type="email" value={Email} onChange={onEmailHandler} />
+        </Form.Item>
+        <Form.Item required label="Password">
+        <Input type="password" value={Password} onChange={onPasswordHandler} />
+        </Form.Item>
+        <Form.Item required label="Confirm">
+        <Input
           type="password"
           value={ConfirmPassword}
           onChange={onConfirmPasswordHandler}
         />
+        </Form.Item>
         <br />
-        <button type="submit">회원가입</button>
-      </form>
+        <Button type="submit">회원가입</Button>
+      </Form>
     </div>
   );
 }
