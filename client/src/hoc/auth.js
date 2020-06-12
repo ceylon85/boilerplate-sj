@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import Axios from "axios";
-import { useDispatch } from "react-redux";
 import { auth } from "../_actions/user_action";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function (SpecificComponent, option, adminRoute = null) {
   // SpecificComponent => Auth로 감싼 페이지
@@ -11,6 +10,7 @@ export default function (SpecificComponent, option, adminRoute = null) {
   // false => 로그인한 유저는 출입 불가능한 페이지
   //  admin 유저만 해당하려면 세번째 파라미터로 true 추가 안쓰면 null임
   function AuthenticationCheck(props) {
+    let user = useSelector((state) => state.user);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -34,10 +34,9 @@ export default function (SpecificComponent, option, adminRoute = null) {
         }
       });
 
-      //   Axios.get("/api/users/auth");
-    }, []);
+    }, [dispatch, props.history]);
 
-    return <SpecificComponent />;
+    return <SpecificComponent {...props} user={user} />;
   }
 
   return AuthenticationCheck;
