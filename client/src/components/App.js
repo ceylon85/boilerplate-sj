@@ -7,6 +7,7 @@ import LoginPage from "./views/LoginPage/LoginPage";
 import RegisterPage from "./views/RegisterPage/RegisterPage";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
+import Reset from './views/LoginPage/Reset';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
 
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/reset/:token" component={Auth(Reset, false)} />
+
         </Switch>
       </div>
       <Footer />
