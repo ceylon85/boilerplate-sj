@@ -77,18 +77,5 @@ router.get("/logout", auth, (req, res) => {
   });
 });
 
-router.get('/reset/:token', (req, res, next) => {
-  // token is inside req.params.token
-  User.findOne({ resetPasswordToken: req.params.token }).then(user => {
-     if (user == null) {
-        res.json('Password link is invalid or has expired');
-     } else {
-        res.status(200).send({
-          username: user.email,
-          message: 'Password link accepted',
-        })
-    }
-  })
-});
-
+ 
 module.exports = router;
