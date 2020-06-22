@@ -1,12 +1,45 @@
 import React from "react";
 import { Typography } from "antd";
+import { useDarkMode } from "../Theme/useDarkMode";
+import { lightTheme, darkTheme } from "../Theme/theme";
+import { GlobalStyles } from "../Theme/global";
+import Toggle from "../Theme/Toggle";
+import { ThemeProvider } from "styled-components";
 
 function LandingPage() {
   const Title = Typography;
+  const [theme, toggleTheme, componentMounted] = useDarkMode();
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+  if (!componentMounted) {
+    return <div />;
+  }
 
   return (
     <div className="app">
-      <Title style={{ fontSize: "2rem" }}>시작 페이지</Title>
+      <h1 style={{ fontSize: "2rem" }}>시작 페이지</h1>
+      <hr/>
+      <ThemeProvider theme={themeMode}>
+        <GlobalStyles />
+        <Toggle theme={theme} toggleTheme={toggleTheme} />
+        <h1>It's a {theme === "light" ? "light theme" : "dark theme"}!</h1>
+        <footer>
+          <span>Credits:</span>
+          <small>
+            <b>Sun</b> icon made by{" "}
+            <a href="https://www.flaticon.com/authors/smalllikeart">
+              smalllikeart
+            </a>{" "}
+            from <a href="https://www.flaticon.com">www.flaticon.com</a>
+          </small>
+          <small>
+            <b>Moon</b> icon made by{" "}
+            <a href="https://www.freepik.com/home">Freepik</a> from{" "}
+            <a href="https://www.flaticon.com">www.flaticon.com</a>
+          </small>
+        </footer>
+      </ThemeProvider>
+      
     </div>
   );
 }
