@@ -3,8 +3,8 @@ import { func, string } from "prop-types";
 import styled from "styled-components";
 
 //svg 해와 달 디자인에 사용되는 svg 파일 import
-import { ReactComponent as MoonIcon } from "../Theme/icons/moon.svg";
-import { ReactComponent as SunIcon } from "../Theme/icons/sun.svg";
+import { ReactComponent as MoonIcon } from "../theme/icons/moon.svg";
+import { ReactComponent as SunIcon } from "../theme/icons/sun.svg";
 
 const ToggleContainer = styled.button`
   position: relative;

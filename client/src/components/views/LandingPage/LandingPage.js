@@ -1,9 +1,9 @@
 import React from "react";
 import { Typography } from "antd";
-import { useDarkMode } from "../Theme/useDarkMode";
-import { lightTheme, darkTheme } from "../Theme/theme";
-import { GlobalStyles } from "../Theme/global";
-import Toggle from "../Theme/Toggle";
+import { useDarkMode } from "../theme/useDarkMode";
+import { lightTheme, darkTheme } from "../theme/theme";
+import { GlobalStyles } from "../theme/global";
+import Toggle from "../theme/Toggle";
 import { ThemeProvider } from "styled-components";
 
 function LandingPage() {
