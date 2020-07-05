@@ -7,6 +7,7 @@ import LoginPage from "./views/LoginPage/LoginPage";
 import RegisterPage from "./views/RegisterPage/RegisterPage";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
+import ClonePage from './views/ClonePage/YoutubeClone';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/login" component={Auth(LoginPage, false)} />
 
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
+          <Route exact path="/youtubeClone" component={Auth(ClonePage, false)} />
 
         </Switch>
       </div>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <script src="main.js" defer></script>
+    <title>Youtube Mobile</title>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <div class="logo">
+            <i class="fab fa-youtube"></i>
+            <span class="title">Youtube</span>
+        </div>
+        <div class="icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-ellipsis-v"></i>
+        </div>
+    </header>
+
+    <!-- Video Plyaer -->
+    <section class="player">
+        <video controls src="video/Crazy Frog.mp4"></video>
+    </section>
+    <!-- infoANdUpNext -->
+    <div class="infoAndUpNext">
+        <!-- Video info -->
+        <section class="info">
+            <!-- 1. Metadata -->
+            <div class="metadata">
+                <ul class="hashtags">
+                    <li>#Youtube</li>
+                    <li>#HTML</li>
+                    <li>#CSS</li>
+                </ul>
+                <div class="titleAndButton">
+                    <span class="title clamp">
+                        이 사이트는 HTML과 CSS 를 이용한 Youtube Clone coding 입니다. HTML + CSS +JS web site clone
+                    </span>
+                    <button class="moreBtn">
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                </div>
+                <span class="views">1000 views 1 weeks ago</span>
+
+            </div>
+            <!--2. Actions Btn -->
+            <ul class="actions">
+                <li>
+                    <button>
+                        <i class="active fas fa-thumbs-up"></i>
+                        <span>1.2K</span>
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <i class="fas fa-thumbs-down"></i>
+                        <span>10</span>
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <i class="fas fa-share"></i>
+                        <span>Share</span>
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <i class="fas fa-plus"></i>
+                        <span>Save</span>
+                    </button>
+                </li>
+                <li>
+                    <button>
+                        <i class="fab fa-font-awesome-flag"></i>
+                        <span>Report</span>
+                    </button>
+                </li>
+            </ul>
+            <!--3. Channel Description -->
+            <div class="channel">
+                <div class="metadata">
+                    <img src="image/Compass.jpg" alt="avatars">
+                    <div class="info">
+                        <span class="name">Coding by SJ Lee</span>
+                        <span class="subscribers">구독자 1.2K 명</span>
+                    </div>
+                </div>
+                <button class="subscribe"><span class="btn">subscribe</span></button>
+            </div>
+        </section>
+
+        <section class="upNext">
+            <span class="title">Up next</span>
+            <ul>
+                <li class="item">
+                    <div class="img"> <img src="image/1.jpg" alt="ship">
+                    </div>
+                    <div class="info">
+                        <span class="title">남극을 찾아오는 배 과연 정체는 무엇인가?</span>
+                        <span class="name">Happy Coding by SJ Lee</span>
+                        <span class="views">78 views</span>
+                    </div>
+                    <button class="moreBtn">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </li>
+                <li class="item">
+                    <div class="img">
+                        <img src="image/2.jpg" alt="penguin">
+                    </div>
+                    <div class="info">
+                        <span class="title">남극 펭귄가족의 생활</span>
+                        <span class="name">Happy Coding by SJ Lee</span>
+                        <span class="views">250 views</span>
+                    </div>
+                    <button class="moreBtn">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </li>
+                <li class="item">
+                    <div class="img">
+                        <img src="image/3.jpg" alt="whale">
+                    </div>
+                    <div class="info">
+                        <span class="title">고래를 찾아서 여기는 남극입니다.</span>
+                        <span class="name">Happy Coding by SJ Lee</span>
+                        <span class="views">150 views</span>
+                    </div>
+                    <button class="moreBtn">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+</body>
+
+</html>
