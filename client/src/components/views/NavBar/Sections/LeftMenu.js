@@ -13,7 +13,10 @@ function LeftMenu(props) {
       <SubMenu title={<span>Menu Items</span>}>
         <MenuItemGroup title="Web">
           <Menu.Item key="youtube">
-            <a href="/web/youtubeClone">youtube</a>
+            <a href="/youtubeClone">youtube</a>
+          </Menu.Item>
+          <Menu.Item key="darkMode">
+            <a href="/darkMode">darkMode</a>
           </Menu.Item>
           <Menu.Item key="setting:1">Option 1</Menu.Item>
           <Menu.Item key="setting:2">Option 2</Menu.Item>

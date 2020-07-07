@@ -8,6 +8,8 @@ import RegisterPage from "./views/RegisterPage/RegisterPage";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer";
 import ClonePage from './views/ClonePage/YoutubeClone';
+import DarkModePage from './views/DarkModePage/DarkMode';
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
 
           <Route exact path="/register" component={Auth(RegisterPage, false)} />
           <Route exact path="/youtubeClone" component={Auth(ClonePage, false)} />
+          <Route exact path="/darkMode" component={Auth(DarkModePage, false)} />
 
         </Switch>
       </div>
